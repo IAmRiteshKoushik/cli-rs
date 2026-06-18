@@ -10,8 +10,12 @@ this book, I can think and program like a Rustacean.
 
 # Things to learn
 
-1. Hello world
+1. Hello world | `Done`
+  - Learned about the `--bin` flag and `default-name` keyword in cargo manifest
 2. Processing command-line arguments
+  - Learned once again for Result, Option and `?` propagation of errors
+  - Had a basic introduction to the `clap` package
+  - Used the predicate package for boolean-type assertions
 3. Implement the `cat` command
 4. Implement the `head` command
 5. Implement the `wc` command
