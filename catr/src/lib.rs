@@ -23,7 +23,7 @@ pub fn get_args() -> MyResult<Config> {
             Arg::with_name("files")
                 .value_name("FILE")
                 .required(false)
-                .help("Input file(s) [default: -]")
+                .help("Input file(s)")
                 .multiple(true)
                 .default_value("-"),
         )
@@ -83,7 +83,7 @@ fn open(filename: &str) -> MyResult<Box<dyn BufRead>> {
 pub fn run(config: Config) -> MyResult<()> {
     for filename in config.files {
         match open(&filename) {
-            Err(err) => println!("Failed to open {}: {}", filename, err),
+            Err(err) => eprintln!("Failed to open {}: {}", filename, err),
             // Ok(_) => println!("Opened {}", filename),
             Ok(buffer) => {
                 let mut skipped_line_count = 0;
@@ -96,6 +96,7 @@ pub fn run(config: Config) -> MyResult<()> {
                             println!("{:6}\t{line}", line_num + 1 - skipped_line_count);
                         } else {
                             skipped_line_count += 1;
+                            println!()
                         }
                     } else {
                         println!("{line}");
