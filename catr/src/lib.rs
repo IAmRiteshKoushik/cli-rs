@@ -6,7 +6,6 @@ use std::io::{self, BufRead, BufReader};
 type MyResult<T> = Result<T, Box<dyn Error>>;
 
 #[derive(Debug)]
-#[allow(dead_code)]
 pub struct Config {
     files: Vec<String>,
     number_lines: bool,
